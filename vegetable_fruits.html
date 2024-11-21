@@ -1,0 +1,280 @@
+
+    <head>
+      <title>Everything delivered in 10 minutes | blinkit</title>
+      <link
+        rel="icon"
+        type="image/x-icon"
+        href="https://images.moneycontrol.com/static-mcnews/2022/01/pjimage-29-770x433.jpg?impolicy=website&width=770&height=431"
+      />
+      <link rel="stylesheet" href="./styles/product.css" />
+      <link rel="stylesheet" href="./styles/index.css" />
+      <link rel="stylesheet" href="./styles/header.css">
+      <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+      />
+      <script src="./scripts/index.js" type="module"></script>
+      <style>
+        /* General Reset */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Search Bar */
+        #search-input {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        #search-input:focus {
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            border-color: #007bff;
+        }
+
+        /* Product List */
+        #product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #007bff;
+        }
+
+        .product-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .product-card p.price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .product-card .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 8px 15px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-card .btn:hover {
+            background-color: #0056b3;
+        }
+        .cart-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.add-to-cart-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.95);
+}
+
+.counter-controls {
+    display: flex;
+    align-items: center;
+}
+
+.counter-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.counter-btn:hover {
+    background-color: #45a049;
+}
+
+.counter-btn:active {
+    transform: scale(0.95);
+}
+
+.item-count {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 10px;
+    min-width: 30px;
+    text-align: center;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+    </head>
+    <body>
+      <!-- navbar div -->
+      <!-- <div id="NAVBAR"></div> -->
+
+      <div id="sd-nav"></div>
+      
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Vegefoods</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Shop</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="wishlist.html">Wishlist</a></li>
+              <li><a href="product-single.html">Single Product</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html" class="cart-link"><span class="icon">🛒</span>[0]</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+      <div id="sd-color">
+        <div id="sd-container">
+          <div id="sd-left">
+            <div id="sd-selected">
+              <a>Vegetables & Fruits</a>
+            </div>
+            
+            <div>
+              <!-- <a>Fruits</a> -->
+              <a href="./vegetables_fruits/fruits.html">Fruits</a>
+            </div>
+            <div>
+              <a href="./vegetables_fruits/vegetable.html">Vegetables</a>
+            </div>
+          </div>
+          <div id="sd-right">
+            <div id="sd-sort">
+              <div>
+                <div>
+                  <p>Home > Vegetables & Fruits</p>
+
+                  <b> Vegetables & Fruits</b>
+                </div>
+              </div>
+              <div id="sd-selectDiv">
+                <span>Sort by</span>
+                <select name="" id="sd-select" onchange="filterProducts()">
+                    <option value="relevance">Relevance</option>
+                    <option value="low">Price (Low to High)</option>
+                    <option value="high">Price (High to Low)</option>
+                    <option value="name">Name (A to Z)</option>
+                </select>
+            </div>
+            
+            </div>
+            <h1>Product Search</h1>
+      <input type="text" id="search-input" placeholder="Search products..." oninput="searchProducts()">
+      <div id="product-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer div -->
+      
+          <div id="veg-cards-container"></div>
+        
+          <script src="new.js"></script> <!-- This script should contain your data and render logic -->
+          
+        
+    </body>
