@@ -1,25 +1,25 @@
-let products = []; // This will store the products fetched from the API
-let filteredProducts = []; // This will store products matching the search criteria
+let products = [];
+let filteredProducts = [];
 
-// Fetch products from the API
+
 const fetchProducts = async () => {
     try {
-        const response = await fetch('https://api.jsonbin.io/v3/b/674899f6e41b4d34e45c599e', {
+        const response = await fetch('https://api.jsonbin.io/v3/b/6748a356e41b4d34e45c5e20', {
             // headers: {
             //     "X-Master-Key": "$2a$10$ikKkL1qXtiSmDaU./ghLtebK77pQ1dIbCtxN2cdASi41ugkligoT6", // Replace with your API key if needed
             //     "Content-Type": "application/json"
             // }
         });
         const data = await response.json();
-        products = data.record; // Accessing the array of products
-        filteredProducts = products; // Initially, all products are displayed
-        displayProducts(filteredProducts); // Display all products
+        products = data.record;
+        filteredProducts = products;
+        displayProducts(filteredProducts);
     } catch (error) {
         console.error('Error fetching products:', error);
     }
 };
 
-// Search products based on user input
+
 function searchProducts() {
     const query = document.getElementById('search-input').value.toLowerCase();
     filteredProducts = products.filter(product =>
@@ -28,66 +28,65 @@ function searchProducts() {
         product.wt.toLowerCase().includes(query)
     );
 
-    displayProducts(filteredProducts); // Display filtered products
+    displayProducts(filteredProducts);
 }
 
-// Sort products based on the selected criteria
+
 function sortProducts(criteria) {
     if (criteria === 'low') {
-        // Sort by price (Low to High)
+
         filteredProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     } else if (criteria === 'high') {
-        // Sort by price (High to Low)
+
         filteredProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     } else if (criteria === 'name') {
-        // Sort by name (A to Z)
+
         filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
     } else {
-        // Default to original order if 'Relevance' is selected
+
         filteredProducts = [...products];
     }
 
-    displayProducts(filteredProducts); // Refresh the displayed products
+    displayProducts(filteredProducts);
 }
 function toggleCartControls(button) {
-    // Hide the "Add to Cart" button and show the quantity controls
+
     button.style.display = "none";
     const counterControls = button.parentNode.querySelector('.counter-controls');
-    counterControls.style.display = "flex";  // Show the + and - buttons
+    counterControls.style.display = "flex";
 
-    // Initialize count to 1 when the button is clicked
+
     const itemCount = counterControls.querySelector('.item-count');
     itemCount.textContent = 1;
 }
 
 function updateCartCount(button, action) {
-    const counterControls = button.parentNode; // Get the parent container of the buttons
-    const itemCountElement = counterControls.querySelector('.item-count'); // Find the counter span
-    let currentCount = parseInt(itemCountElement.textContent); // Get the current count
+    const counterControls = button.parentNode;
+    const itemCountElement = counterControls.querySelector('.item-count');
+    let currentCount = parseInt(itemCountElement.textContent); t
 
     if (action === 'increment') {
-        currentCount++; // Increment the count
+        currentCount++;
     } else if (action === 'decrement') {
-        currentCount--; // Decrement the count, but not below 1
+        currentCount--;
     }
 
-    itemCountElement.textContent = currentCount; // Update the displayed count
+    itemCountElement.textContent = currentCount;
 
-    // If the count is zero, show the "Add to Cart" button again
+
     if (currentCount === 0) {
         const addButton = counterControls.parentNode.querySelector('.add-to-cart-btn');
-        addButton.style.display = "inline-block"; // Show the "Add to Cart" button again
-        counterControls.style.display = "none"; // Hide the quantity controls
+        addButton.style.display = "inline-block";
+        counterControls.style.display = "none";
     }
 }
 
-// Display products as cards
 function displayProducts(productsToDisplay) {
     const productList = document.getElementById('product-list');
-    productList.innerHTML = ''; // Clear previous content
+    productList.innerHTML = '';
 
     if (productsToDisplay.length === 0) {
-        productList.innerHTML = '<p>No products found.</p>'; // Display a message if no products match
+        productList.innerHTML = '<p>No products found.</p>';
         return;
     }
 
@@ -114,11 +113,11 @@ function displayProducts(productsToDisplay) {
     });
 }
 
-// Listen for changes in the sort dropdown
+
 document.getElementById('sd-select').addEventListener('change', (event) => {
-    const selectedValue = event.target.value; // Get the selected sorting criteria
-    sortProducts(selectedValue); // Sort products based on the selected criteria
+    const selectedValue = event.target.value;
+    sortProducts(selectedValue);
 });
 
-// Initialize fetching products on load
+
 window.onload = fetchProducts;
