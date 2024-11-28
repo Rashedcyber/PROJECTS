@@ -4,11 +4,11 @@ let filteredProducts = []; // This will store products matching the search crite
 // Fetch products from the API
 const fetchProducts = async () => {
     try {
-        const response = await fetch('https://api.jsonbin.io/v3/b/673f7abcad19ca34f8cde722', {
-            headers: {
-                "X-Master-Key": "$2a$10$ikKkL1qXtiSmDaU./ghLtebK77pQ1dIbCtxN2cdASi41ugkligoT6", // Replace with your API key if needed
-                "Content-Type": "application/json"
-            }
+        const response = await fetch('https://api.jsonbin.io/v3/b/674899f6e41b4d34e45c599e', {
+            // headers: {
+            //     "X-Master-Key": "$2a$10$ikKkL1qXtiSmDaU./ghLtebK77pQ1dIbCtxN2cdASi41ugkligoT6", // Replace with your API key if needed
+            //     "Content-Type": "application/json"
+            // }
         });
         const data = await response.json();
         products = data.record; // Accessing the array of products
